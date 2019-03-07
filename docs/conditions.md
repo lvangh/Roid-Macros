@@ -88,7 +88,7 @@ This is a list of all Chat Commands that support conditions:
 
 ---
 
-# Available Conditoins:
+# Available Conditions:
 * [attacks / noattacks](conditions/attacks.md)
 * [(no)buff / (no)mybuff / (no)debuff / (no)mydebuff](conditions/buffs.md)
 * [channeled / nochanneled](conditions/channeled.md)
@@ -107,5 +107,6 @@ This is a list of all Chat Commands that support conditions:
 * [raid](conditions/raid.md)
 * [stance](conditions/stance.md)
 * [stealth / nostealth](conditions/stealth.md)
+* [tarlvl](conditions/tarlvl.md)
 * [type](conditions/type.md)
 * [UnitID](conditions/target.md)
