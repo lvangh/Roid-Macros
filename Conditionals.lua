@@ -9,7 +9,7 @@ local Roids = _G.Roids or {}
 -- Custom Mob Level function - created by Maulbatross and Mobsonme (Kronos III)
 -- Checks whether or not target level "tarlvl" level is greater or less than given level
 -- converts bosses to "999" from "-1"
--- e.g. /use [tarlvl>61 combat] Oil of Immolation
+-- e.g. /use [tarlvl>61 combat nomybuff:Fire_Shield] Oil of Immolation
 -- unit: The unit we're checking
 -- bigger: 1 if the level needs to be bigger, 0 if it needs to be less?
 -- amount: The required level
