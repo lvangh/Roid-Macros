@@ -5,6 +5,31 @@
 local _G = _G or getfenv(0)
 local Roids = _G.Roids or {}
 
+
+-- Custom Mob Level function - created by Maulbatross and Mobsonme (Kronos III)
+-- Checks whether or not target level "tarlvl" level is greater or less than given level
+-- converts bosses to "999" from "-1"
+-- e.g. /use [tarlvl>61 combat] Oil of Immolation
+-- unit: The unit we're checking
+-- bigger: 1 if the level needs to be bigger, 0 if it needs to be less?
+-- amount: The required level
+-- returns: True or false
+
+function Roids.CheckTargetLevel(target, bigger, amount)
+    local mlevel = UnitLevel(target);
+
+    if mlevel == -1 then
+       mlevel = 999
+    end
+
+    if bigger == 0 then
+        return mlevel < tonumber(amount);
+    end
+
+    return mlevel > tonumber(amount);
+end
+
+
 -- Validates that the given target is either friend (if [help]) or foe (if [harm])
 -- target: The unit id to check
 -- help: Optional. If set to 1 then the target must be friendly. If set to 0 it must be an enemy.
@@ -229,6 +254,7 @@ function Roids.ValidatePower(unit, bigger, amount)
     return powerPercent > tonumber(amount);
 end
 
+
 -- Checks whether or not the given unit has more or less total power than the given amount
 -- unit: The unit we're checking
 -- bigger: 1 if the raw power needs to be bigger, 0 if it needs to be less
@@ -338,6 +364,13 @@ end
 
 -- A list of Conditionals and their functions to validate them
 Roids.Keywords = {
+
+ --   targetlevel = function(conditionals)
+ --   return Roids.ValidateHp(conditionals.target, conditionals.hp.bigger, conditionals.hp.amount);
+--end,
+
+
+
     help = function(conditionals)
         return true;
     end,
@@ -473,6 +506,10 @@ Roids.Keywords = {
         return Roids.ValidatePower("player", conditionals.mypower.bigger, conditionals.mypower.amount);
     end,
     
+    tarlvl = function(conditionals)
+    return Roids.CheckTargetLevel(conditionals.target, conditionals.tarlvl.bigger, conditionals.tarlvl.amount);
+    end,
+
     rawpower = function(conditionals)
         return Roids.ValidateRawPower(conditionals.target, conditionals.rawpower.bigger, conditionals.rawpower.amount);
     end,
