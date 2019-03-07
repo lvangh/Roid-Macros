@@ -8,6 +8,8 @@ Checks value against targeted unit to allow a /use or /cast.
 /cast [tarlvl>61] Feign Death
 ```
 
+Casts Feign Death when the target's level is greater than 61.
+
 ---
 
 ```lua
