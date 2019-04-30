@@ -365,12 +365,6 @@ end
 -- A list of Conditionals and their functions to validate them
 Roids.Keywords = {
 
- --   targetlevel = function(conditionals)
- --   return Roids.ValidateHp(conditionals.target, conditionals.hp.bigger, conditionals.hp.amount);
---end,
-
-
-
     help = function(conditionals)
         return true;
     end,
